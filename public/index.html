@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tareas Firestore</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Tareas</h1>
+      <p class="sub">CRUD en tiempo real con Cloud Firestore (NoSQL documental)</p>
+    </header>
+
+    <form id="form-nueva" autocomplete="off">
+      <input id="titulo" type="text" maxlength="120" placeholder="Nueva tarea…" aria-label="Título de la tarea" required>
+      <button type="submit">Agregar</button>
+    </form>
+
+    <p id="estado" class="estado" role="status">Conectando…</p>
+    <ul id="lista" class="lista"></ul>
+
+    <footer>
+      <span id="contador"></span>
+      <a href="https://github.com/ml-305/tareas-firestore" id="repo">Código en GitHub</a>
+    </footer>
+  </main>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

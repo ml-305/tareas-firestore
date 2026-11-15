@@ -1,0 +1,16 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // App de demostración sin inicio de sesión: la colección es pública,
+    // pero cada documento debe cumplir el esquema.
+    match /tareas/{id} {
+      allow read, delete: if true;
+      allow create, update: if
+        request.resource.data.keys().hasOnly(['titulo', 'completada', 'creadaEn'])
+        && request.resource.data.titulo is string
+        && request.resource.data.titulo.size() > 0
+        && request.resource.data.titulo.size() <= 120
+        && request.resource.data.completada is bool;
+    }
+  }
+}
